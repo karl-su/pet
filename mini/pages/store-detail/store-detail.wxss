@@ -1,0 +1,260 @@
+/* pages/store-detail/store-detail.wxss */
+.container {
+  padding: 0;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 头部信息 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20rpx;
+  color: white;
+}
+
+.store-basic-info {
+  margin-bottom: 20rpx;
+}
+
+.store-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.store-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.rating-text {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.rating-stars {
+  font-size: 24rpx;
+  color: #ffd700;
+}
+
+.store-address,
+.store-phone,
+.store-hours {
+  font-size: 26rpx;
+  margin-bottom: 8rpx;
+  opacity: 0.9;
+}
+
+.store-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  border: none;
+  color: white;
+}
+
+.call-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navigate-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.favorite-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 主要功能入口 */
+.main-features {
+  display: flex;
+  background-color: white;
+  padding: 30rpx 20rpx;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  border-radius: 15rpx;
+  transition: background-color 0.3s;
+}
+
+.feature-item:active {
+  background-color: #f0f0f0;
+}
+
+.feature-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.feature-text {
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+
+/* 标签页 */
+.tabs {
+  display: flex;
+  background-color: white;
+  margin: 0 20rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  background-color: #f8f8f8;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background-color: #667eea;
+  color: white;
+}
+
+/* 标签页内容 */
+.tab-content {
+  margin: 0 20rpx;
+}
+
+.tab-panel {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.description-text {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.service-tag {
+  background-color: #f0f8ff;
+  color: #667eea;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  border: 2rpx solid #e6f3ff;
+}
+
+/* 服务列表 */
+.service-list {
+  margin-top: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.service-price {
+  font-size: 26rpx;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+/* 评价 */
+.rating-summary {
+  text-align: center;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  margin-bottom: 30rpx;
+}
+
+.rating-score {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-bottom: 10rpx;
+}
+
+.rating-count {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.reviews {
+  margin-top: 20rpx;
+}
+
+.review-item {
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-user {
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.review-rating {
+  font-size: 24rpx;
+  color: #ffd700;
+  margin-bottom: 10rpx;
+}
+
+.review-content {
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.review-date {
+  font-size: 24rpx;
+  color: #999;
+}

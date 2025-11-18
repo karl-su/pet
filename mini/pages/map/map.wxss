@@ -1,0 +1,148 @@
+/* pages/map/map.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-container {
+  height: 50vh;
+  width: 100%;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.stores-container {
+  height: 50vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.stores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: white;
+  border-bottom: 1rpx solid #eee;
+}
+
+.stores-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.stores-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.stores-list {
+  flex: 1;
+  padding: 20rpx;
+}
+
+.store-item {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.store-info {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.store-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.store-address {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+}
+
+.store-services {
+  margin-bottom: 15rpx;
+}
+
+.service-tag {
+  display: inline-block;
+  background-color: #e8f5e8;
+  color: #3cc51f;
+  font-size: 22rpx;
+  padding: 6rpx 12rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 8rpx;
+}
+
+.store-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store-rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-text {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.rating-stars {
+  font-size: 20rpx;
+  color: #ffd700;
+}
+
+.store-distance {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.store-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.action-btn {
+  width: 120rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  border: none;
+  outline: none;
+}
+
+.call-btn {
+  background-color: #3cc51f;
+  color: white;
+}
+
+.navigate-btn {
+  background-color: #007aff;
+  color: white;
+}
+
+.action-btn:active {
+  opacity: 0.8;
+}

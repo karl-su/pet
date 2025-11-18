@@ -1,0 +1,70 @@
+<!--pages/map/map.wxml-->
+<view class="container">
+  <!-- 地图区域 -->
+  <view class="map-container">
+    <map
+      id="petMap"
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      scale="16"
+      markers="{{markers}}"
+      show-location="true"
+      bindmarkertap="onMarkerTap"
+    ></map>
+  </view>
+  
+  <!-- 宠物店列表区域 -->
+  <view class="stores-container">
+    <view class="stores-header">
+      <text class="stores-title">附近宠物店</text>
+      <text class="stores-count">{{petStores.length}}家</text>
+    </view>
+    
+    <scroll-view class="stores-list" scroll-y="true">
+      <view 
+        class="store-item" 
+        wx:for="{{petStores}}" 
+        wx:key="id"
+        data-store="{{item}}"
+        bindtap="navigateToStore"
+      >
+        <view class="store-info">
+          <view class="store-name">{{item.name}}</view>
+          <view class="store-address">{{item.address}}</view>
+          <view class="store-services">
+            <text class="service-tag" wx:for="{{item.services}}" wx:key="*this" wx:for-item="service">
+              {{service}}
+            </text>
+          </view>
+          <view class="store-meta">
+            <view class="store-rating">
+              <text class="rating-text">评分：{{item.rating}}</text>
+              <text class="rating-stars">★★★★★</text>
+            </view>
+            <text class="store-distance">{{item.distance}}</text>
+          </view>
+        </view>
+        
+        <view class="store-actions">
+          <button 
+            class="action-btn call-btn" 
+            data-phone="{{item.phone}}"
+            bindtap="callStore"
+            catchtap="true"
+          >
+            电话
+          </button>
+          <button 
+            class="action-btn navigate-btn"
+            data-store="{{item}}"
+            bindtap="openLocation"
+            catchtap="true"
+          >
+            导航
+          </button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

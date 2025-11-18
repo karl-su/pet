@@ -1,0 +1,127 @@
+<!--pages/add-pet/add-pet.wxml-->
+<view class="container">
+  <view class="form-container">
+    <view class="form-header">
+      <text class="form-title">添加宠物</text>
+    </view>
+    
+    <view class="form-content">
+      <!-- 头像选择 -->
+      <view class="form-item">
+        <text class="form-label">宠物头像</text>
+        <view class="avatar-section" bindtap="chooseAvatar">
+          <image 
+            src="{{formData.avatar || '/images/default-pet.png'}}" 
+            class="avatar-preview"
+            mode="aspectFill"
+          ></image>
+          <text class="avatar-tip">点击选择头像</text>
+        </view>
+      </view>
+      
+      <!-- 宠物姓名 -->
+      <view class="form-item">
+        <text class="form-label">宠物姓名 *</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入宠物姓名"
+          value="{{formData.name}}"
+          data-field="name"
+          bindinput="onInputChange"
+        />
+      </view>
+      
+      <!-- 宠物类型 -->
+      <view class="form-item">
+        <text class="form-label">宠物类型 *</text>
+        <input 
+          class="form-input" 
+          placeholder="如：金毛犬、英短猫等"
+          value="{{formData.type}}"
+          data-field="type"
+          bindinput="onInputChange"
+        />
+      </view>
+      
+      <!-- 宠物描述 -->
+      <view class="form-item">
+        <text class="form-label">宠物描述</text>
+        <textarea 
+          class="form-textarea" 
+          placeholder="介绍一下你的宠物..."
+          value="{{formData.description}}"
+          data-field="description"
+          bindinput="onInputChange"
+          maxlength="200"
+        ></textarea>
+      </view>
+      
+      <!-- 年龄 -->
+      <view class="form-item">
+        <text class="form-label">年龄</text>
+        <input 
+          class="form-input" 
+          placeholder="如：2岁、6个月"
+          value="{{formData.age}}"
+          data-field="age"
+          bindinput="onInputChange"
+        />
+      </view>
+      
+      <!-- 性别 -->
+      <view class="form-item">
+        <text class="form-label">性别</text>
+        <picker 
+          class="form-picker"
+          range="{{genderOptions}}"
+          value="{{genderOptions.indexOf(formData.gender)}}"
+          bindchange="onGenderChange"
+        >
+          <view class="picker-text">{{formData.gender}}</view>
+        </picker>
+      </view>
+      
+      <!-- 体重 -->
+      <view class="form-item">
+        <text class="form-label">体重</text>
+        <input 
+          class="form-input" 
+          placeholder="如：25kg"
+          value="{{formData.weight}}"
+          data-field="weight"
+          bindinput="onInputChange"
+        />
+      </view>
+      
+      <!-- 生日 -->
+      <view class="form-item">
+        <text class="form-label">生日</text>
+        <picker 
+          class="form-picker"
+          mode="date"
+          value="{{formData.birthday}}"
+          bindchange="onBirthdayChange"
+        >
+          <view class="picker-text">{{formData.birthday}}</view>
+        </picker>
+      </view>
+      
+      <!-- 健康状态 -->
+      <view class="form-item">
+        <text class="form-label">健康状态</text>
+        <picker 
+          class="form-picker"
+          range="{{healthOptions}}"
+          value="{{healthOptions.indexOf(formData.healthStatus)}}"
+          bindchange="onHealthChange"
+        >
+          <view class="picker-text">{{formData.healthStatus}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <view class="form-actions">
+      <button class="save-btn" bindtap="savePet">保存</button>
+    </view>
+  </view>
+</view>

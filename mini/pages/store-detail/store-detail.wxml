@@ -1,0 +1,109 @@
+<!--pages/store-detail/store-detail.wxml-->
+<view class="container">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="store-basic-info">
+      <view class="store-name">{{storeInfo.name}}</view>
+      <view class="store-rating">
+        <text class="rating-text">评分：{{storeInfo.rating}}</text>
+        <text class="rating-stars">★★★★★</text>
+      </view>
+      <view class="store-address">{{storeInfo.address}}</view>
+      <view class="store-phone">{{storeInfo.phone}}</view>
+      <view class="store-hours">营业时间：{{storeInfo.businessHours}}</view>
+    </view>
+    
+    <view class="store-actions">
+      <button class="action-btn call-btn" bindtap="callStore">电话</button>
+      <button class="action-btn navigate-btn" bindtap="navigateToStore">导航</button>
+      <button class="action-btn favorite-btn" bindtap="toggleFavorite">收藏</button>
+    </view>
+  </view>
+
+  <!-- 主要功能入口 -->
+  <view class="main-features">
+    <view class="feature-item" bindtap="makeAppointment">
+      <view class="feature-icon">📅</view>
+      <view class="feature-text">预约服务</view>
+    </view>
+    <view class="feature-item" bindtap="viewMedicalRecords">
+      <view class="feature-icon">📋</view>
+      <view class="feature-text">就诊记录</view>
+    </view>
+    <view class="feature-item">
+      <view class="feature-icon">💊</view>
+      <view class="feature-text">健康档案</view>
+    </view>
+    <view class="feature-item">
+      <view class="feature-icon">💰</view>
+      <view class="feature-text">费用查询</view>
+    </view>
+  </view>
+
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 标签页内容 -->
+  <view class="tab-content">
+    <!-- 详情页 -->
+    <view class="tab-panel" wx:if="{{currentTab === 0}}">
+      <view class="description">
+        <view class="section-title">店铺介绍</view>
+        <view class="description-text">{{storeInfo.description}}</view>
+      </view>
+      
+      <view class="services">
+        <view class="section-title">服务项目</view>
+        <view class="service-tags">
+          <text class="service-tag" wx:for="{{storeInfo.services}}" wx:key="*this">
+            {{item}}
+          </text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 服务页 -->
+    <view class="tab-panel" wx:if="{{currentTab === 1}}">
+      <view class="service-list">
+        <view class="service-item" wx:for="{{storeInfo.services}}" wx:key="*this">
+          <view class="service-name">{{item}}</view>
+          <view class="service-price">价格面议</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 评价页 -->
+    <view class="tab-panel" wx:if="{{currentTab === 2}}">
+      <view class="rating-summary">
+        <view class="rating-score">{{storeInfo.rating}}</view>
+        <view class="rating-stars">★★★★★</view>
+        <view class="rating-count">基于128条评价</view>
+      </view>
+      
+      <view class="reviews">
+        <view class="review-item">
+          <view class="review-user">用户***123</view>
+          <view class="review-rating">★★★★★</view>
+          <view class="review-content">服务很好，医生很专业，环境也很干净。</view>
+          <view class="review-date">2024-01-15</view>
+        </view>
+        <view class="review-item">
+          <view class="review-user">用户***456</view>
+          <view class="review-rating">★★★★☆</view>
+          <view class="review-content">价格合理，服务态度不错，推荐。</view>
+          <view class="review-date">2024-01-10</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

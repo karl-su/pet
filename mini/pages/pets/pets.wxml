@@ -1,0 +1,67 @@
+<!--pages/pets/pets.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="page-title">我的宠物</text>
+    <text class="pet-count">共{{pets.length}}只</text>
+  </view>
+  
+  <scroll-view class="pets-list" scroll-y="true">
+    <view 
+      class="pet-item" 
+      wx:for="{{pets}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="viewPetDetail"
+    >
+      <view class="pet-avatar">
+        <image 
+          src="{{item.avatar}}" 
+          class="avatar-image"
+          mode="aspectFill"
+        ></image>
+      </view>
+      
+      <view class="pet-info">
+        <view class="pet-name">{{item.name}}</view>
+        <view class="pet-type">{{item.type}}</view>
+        <view class="pet-description">{{item.description}}</view>
+        <view class="pet-details">
+          <text class="detail-item">{{item.age}}</text>
+          <text class="detail-item">{{item.gender}}</text>
+          <text class="detail-item">{{item.weight}}</text>
+        </view>
+        <view class="pet-status">
+          <text class="status-tag {{item.healthStatus === '健康' ? 'healthy' : 'sick'}}">
+            {{item.healthStatus}}
+          </text>
+        </view>
+      </view>
+      
+      <view class="pet-actions">
+        <button 
+          class="action-btn edit-btn"
+          data-id="{{item.id}}"
+          bindtap="editPet"
+          catchtap="true"
+        >
+          编辑
+        </button>
+        <button 
+          class="action-btn delete-btn"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}"
+          bindtap="deletePet"
+          catchtap="true"
+        >
+          删除
+        </button>
+      </view>
+    </view>
+    
+    <!-- 添加宠物按钮 -->
+    <view class="add-pet-btn" bindtap="addPet">
+      <view class="add-icon">+</view>
+      <text class="add-text">添加宠物</text>
+    </view>
+  </scroll-view>
+</view>
