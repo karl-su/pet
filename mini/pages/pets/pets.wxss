@@ -128,6 +128,11 @@
   outline: none;
 }
 
+.ai-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
 .edit-btn {
   background-color: #007aff;
   color: white;

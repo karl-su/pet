@@ -50,6 +50,14 @@ Page({
     })
   },
 
+  startAiConsultation(e) {
+    const petId = e.currentTarget.dataset.id
+    const petName = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: `/pages/ai-consultation/ai-consultation?petId=${petId}&petName=${petName}`
+    })
+  },
+
   editPet(e) {
     const petId = e.currentTarget.dataset.id
     wx.navigateTo({

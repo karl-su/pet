@@ -3,7 +3,8 @@
     "pages/map/map",
     "pages/pets/pets",
     "pages/add-pet/add-pet",
-    "pages/store-detail/store-detail"
+    "pages/store-detail/store-detail",
+    "pages/ai-consultation/ai-consultation"
   ],
   "tabBar": {
     "color": "#7A7E83",

@@ -39,10 +39,17 @@
       
       <view class="pet-actions">
         <button 
+          class="action-btn ai-btn"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}"
+          catchtap="startAiConsultation"
+        >
+          AI问诊
+        </button>
+        <button 
           class="action-btn edit-btn"
           data-id="{{item.id}}"
-          bindtap="editPet"
-          catchtap="true"
+          catchtap="editPet"
         >
           编辑
         </button>
@@ -50,8 +57,7 @@
           class="action-btn delete-btn"
           data-id="{{item.id}}"
           data-name="{{item.name}}"
-          bindtap="deletePet"
-          catchtap="true"
+          catchtap="deletePet"
         >
           删除
         </button>

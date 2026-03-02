@@ -1,0 +1,86 @@
+<!--pages/ai-consultation/ai-consultation.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="header">
+    <view class="header-left" bindtap="goBack">
+      <text class="back-icon">←</text>
+      <text class="back-text">返回</text>
+    </view>
+    <view class="header-title">
+      <text class="title-text">{{petName}} - AI问诊</text>
+    </view>
+    <view class="header-right" bindtap="clearChat">
+      <text class="clear-text">清空</text>
+    </view>
+  </view>
+
+  <!-- 对话内容区域 -->
+  <scroll-view 
+    class="chat-container" 
+    scroll-y="true" 
+    scroll-into-view="{{scrollToView}}"
+    scroll-with-animation="true"
+  >
+    <view id="chat-container" class="messages-list">
+      <view 
+        class="message-item {{item.type === 'user' ? 'user-message' : 'ai-message'}}"
+        wx:for="{{messages}}" 
+        wx:key="id"
+      >
+        <!-- AI消息 -->
+        <view class="message-content ai-content" wx:if="{{item.type === 'ai'}}">
+          <view class="avatar ai-avatar">
+            <text class="avatar-text">AI</text>
+          </view>
+          <view class="message-body">
+            <view class="message-text">{{item.content}}</view>
+            <view class="message-time">{{item.time}}</view>
+          </view>
+        </view>
+
+        <!-- 用户消息 -->
+        <view class="message-content user-content" wx:else>
+          <view class="message-body">
+            <view class="message-text">{{item.content}}</view>
+            <image 
+              class="message-image" 
+              src="{{item.image}}" 
+              mode="aspectFill"
+              wx:if="{{item.image}}"
+            ></image>
+            <view class="message-time">{{item.time}}</view>
+          </view>
+          <view class="avatar user-avatar">
+            <text class="avatar-text">我</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部输入区域 -->
+  <view class="input-area">
+    <view class="input-wrapper">
+      <view class="image-btn" bindtap="chooseImage">
+        <text class="image-icon">📷</text>
+      </view>
+      <input 
+        class="message-input" 
+        type="text" 
+        placeholder="描述宠物症状..." 
+        value="{{inputValue}}"
+        bindinput="onInputChange"
+        confirm-type="send"
+        bindconfirm="sendMessage"
+        focus="{{false}}"
+      />
+      <button 
+        class="send-btn" 
+        bindtap="sendMessage"
+        disabled="{{!inputValue}}"
+      >
+        发送
+      </button>
+    </view>
+  </view>
+</view>
